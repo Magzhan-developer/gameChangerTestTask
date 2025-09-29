@@ -1,7 +1,6 @@
 import {paths} from "./paths.ts";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
-import LoginPage from "../pages/Authorization/LoginPage/LoginPage.tsx";
-import RegisterPage from "../pages/Authorization/RegisterPage/RegisterPage.tsx";
+import AuthPage from "../pages/Authorization/AuthPage.tsx";
 
 export const routerProps = {
     profilePage:{
@@ -10,10 +9,10 @@ export const routerProps = {
     },
     loginPage:{
         path:paths.loginPage,
-        component:LoginPage
+        component:AuthPage
     },
     registerPage:{
         path:paths.registerPage,
-        component:RegisterPage
+        component:AuthPage
     }
 }
