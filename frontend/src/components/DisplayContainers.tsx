@@ -1,0 +1,218 @@
+import styled from "styled-components";
+
+export const FlexContainer = styled('div')(
+    ({
+         flexDirection = 'row',
+         flexWrap = 'nowrap',
+         flexGrow,
+         flexShrink,
+         flexBasis,
+         justifyContent = 'flex-start',
+         alignItems = 'stretch',
+         alignSelf = 'auto',
+         gap,
+         rowGap,
+         columnGap,
+         width,
+         height,
+         minWidth,
+         minHeight,
+         maxWidth,
+         maxHeight,
+         padding,
+         paddingTop,
+         paddingRight,
+         paddingBottom,
+         paddingLeft,
+         margin,
+         marginTop,
+         marginRight,
+         marginBottom,
+         marginLeft,
+         position,
+         top,
+         left,
+         right,
+         bottom
+     }) => ({
+        display: 'flex',
+        flexDirection,
+        flexWrap,
+        ...(flexGrow !== undefined && { flexGrow }),
+        ...(flexShrink !== undefined && { flexShrink }),
+        ...(flexBasis !== undefined && { flexBasis }),
+        justifyContent,
+        alignItems,
+        alignSelf,
+        ...(gap && { gap }),
+        ...(rowGap && { rowGap }),
+        ...(columnGap && { columnGap }),
+        ...(width && { width }),
+        ...(height && { height }),
+        ...(minWidth && { minWidth }),
+        ...(minHeight && { minHeight }),
+        ...(maxWidth && { maxWidth }),
+        ...(maxHeight && { maxHeight }),
+        ...(padding && { padding }),
+        ...(paddingTop && { paddingTop }),
+        ...(paddingRight && { paddingRight }),
+        ...(paddingBottom && { paddingBottom }),
+        ...(paddingLeft && { paddingLeft }),
+        ...(margin && { margin }),
+        ...(marginTop && { marginTop }),
+        ...(marginRight && { marginRight }),
+        ...(marginBottom && { marginBottom }),
+        ...(marginLeft && { marginLeft }),
+        ...(position && { position }),
+        ...(top && { top }),
+        ...(left && { left }),
+        ...(right && { right }),
+        ...(bottom && { bottom }),
+    })
+);
+
+export const Container = styled('div')(
+    ({
+         display = 'block',
+
+         // Flex
+         flexDirection,
+         flexWrap,
+         flexGrow,
+         flexShrink,
+         flexBasis,
+         justifyContent,
+         alignItems,
+         alignSelf,
+         gap,
+         rowGap,
+         columnGap,
+         order,
+
+         // Grid
+         gridTemplateColumns,
+         gridTemplateRows,
+         gridColumn,
+         gridRow,
+         gridArea,
+         placeItems,
+         placeContent,
+
+         // Box sizes
+         width,
+         height,
+         minWidth,
+         minHeight,
+         maxWidth,
+         maxHeight,
+
+         // Spacing
+         padding,
+         paddingTop,
+         paddingRight,
+         paddingBottom,
+         paddingLeft,
+         margin,
+         marginTop,
+         marginRight,
+         marginBottom,
+         marginLeft,
+
+         // Position
+         position,
+         top,
+         right,
+         bottom,
+         left,
+         zIndex,
+
+         // Borders & background
+         border,
+         borderTop,
+         borderRight,
+         borderBottom,
+         borderLeft,
+         borderRadius,
+         background,
+         backgroundColor,
+         color,
+         boxShadow,
+
+         // Overflow & others
+         overflow,
+         overflowX,
+         overflowY,
+         whiteSpace,
+     }) => ({
+        display,
+
+        // Flex
+        ...(flexDirection && { flexDirection }),
+        ...(flexWrap && { flexWrap }),
+        ...(flexGrow !== undefined && { flexGrow }),
+        ...(flexShrink !== undefined && { flexShrink }),
+        ...(flexBasis && { flexBasis }),
+        ...(justifyContent && { justifyContent }),
+        ...(alignItems && { alignItems }),
+        ...(alignSelf && { alignSelf }),
+        ...(gap && { gap }),
+        ...(rowGap && { rowGap }),
+        ...(columnGap && { columnGap }),
+        ...(order !== undefined && { order }),
+
+        // Grid
+        ...(gridTemplateColumns && { gridTemplateColumns }),
+        ...(gridTemplateRows && { gridTemplateRows }),
+        ...(gridColumn && { gridColumn }),
+        ...(gridRow && { gridRow }),
+        ...(gridArea && { gridArea }),
+        ...(placeItems && { placeItems }),
+        ...(placeContent && { placeContent }),
+
+        // Box sizes
+        ...(width && { width }),
+        ...(height && { height }),
+        ...(minWidth && { minWidth }),
+        ...(minHeight && { minHeight }),
+        ...(maxWidth && { maxWidth }),
+        ...(maxHeight && { maxHeight }),
+
+        // Spacing
+        ...(padding && { padding }),
+        ...(paddingTop && { paddingTop }),
+        ...(paddingRight && { paddingRight }),
+        ...(paddingBottom && { paddingBottom }),
+        ...(paddingLeft && { paddingLeft }),
+        ...(margin && { margin }),
+        ...(marginTop && { marginTop }),
+        ...(marginRight && { marginRight }),
+        ...(marginBottom && { marginBottom }),
+        ...(marginLeft && { marginLeft }),
+
+        // Position
+        ...(position && { position }),
+        ...(top !== undefined && { top }),
+        ...(right !== undefined && { right }),
+        ...(bottom !== undefined && { bottom }),
+        ...(left !== undefined && { left }),
+        ...(zIndex !== undefined && { zIndex }),
+
+        // Borders & background
+        ...(border && { border }),
+        ...(borderTop && { borderTop }),
+        ...(borderRight && { borderRight }),
+        ...(borderBottom && { borderBottom }),
+        ...(borderLeft && { borderLeft }),
+        ...(borderRadius && { borderRadius }),
+        ...(background && { background }),
+        ...(backgroundColor && { backgroundColor }),
+        ...(color && { color }),
+        ...(boxShadow && { boxShadow }),
+
+        // Overflow & others
+        ...(overflow && { overflow }),
+        ...(overflowX && { overflowX }),
+        ...(overflowY && { overflowY }),
+        ...(whiteSpace && { whiteSpace }),
+    })
+);
