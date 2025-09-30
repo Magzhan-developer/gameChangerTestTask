@@ -4,3 +4,6 @@ export interface FormValues{
     login: string,
     password_repeat: string
 }
+export interface registerBody extends FormValues{
+
+}

@@ -10,7 +10,9 @@ import {Container, FlexContainer} from "../../components/DisplayContainers.tsx";
 import Input from "../../_ui/Input/Input.tsx";
 import Button from "../../_ui/Button/Button.tsx";
 import {useLocation} from "react-router-dom";
-import {useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {registerUser} from "./AuthDucks.ts";
+import type {AppDispatch} from "../../_helpers/store.ts";
 const LogoTitle = styled.div(
     ({
         fontSize:fontSizes.fs56,
@@ -38,10 +40,7 @@ const AuthImage = styled.img`
 
 function AuthPage() {
     const { pathname } = useLocation()
-    useEffect(() => {
-        console.log('pathname:',pathname)
-    }, []);
-
+    const dispatch:AppDispatch = useDispatch()
     const initialValues: FormValues = {email: "", password: "", login:"", password_repeat:""};
     const LoginValidationSchema = yup.object().shape({
         login:yup.string().min(6,"Логин должен быть минимум 6 символов").required('Логин обязателен'),
@@ -56,7 +55,7 @@ function AuthPage() {
     })
 
     const formSubmit = (values:FormValues) =>{
-        console.log('form submitted',values);
+        dispatch(registerUser(values))
     }
 
     return(
@@ -82,13 +81,13 @@ function AuthPage() {
                                 {
                                     pathname === '/register' && <Input withoutForm={false} name={'password_repeat'} type={'password'} label={'Повторите пароль'} autoComplete={'new-username'}/>
                                 }
-                                <Button text={'Вход'} type={'submit'} loadingPosition={'end'} variant={'contained'}/>
+                                <Button text={pathname === '/register' ? 'Отправить' : 'Вход'} type={'submit'} loadingPosition={'end'} variant={'contained'}/>
                                 <Typography
                                     sx={{textTransform:"uppercase",color:'#AEAEAE',fontSize:`${fontSizes.fs18}`,verticalAlign:'middle',textAlign:'center'}}
                                 >
                                     Или
                                 </Typography>
-                                <Link href={'#'} underline={'none'} style={{fontSize:`${fontSizes.fs18}`,marginTop:'-10px'}}>{pathname === '/register' ? 'Вход' :'Регистрация'}</Link>
+                                <Link href={pathname === '/register' ? '/login' :'/register'} underline={'none'} style={{fontSize:`${fontSizes.fs18}`,marginTop:'-10px'}}>{pathname === '/register' ? 'Вход' :'Регистрация'}</Link>
                             </Container>
 
                         </Form>

@@ -9,10 +9,11 @@ interface ButtonProps {
     iconOrder?: 'start' | 'end';
     loading?: boolean;
     disabled?: boolean;
+    onClick?: () => void;
     [key: string]: any;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, icon,iconOrder, loading, disabled, ...rest }) => {
+const Button: React.FC<ButtonProps> = ({ text, icon,iconOrder, loading, disabled,onClick, ...rest }) => {
     return (
         <MuiButton
             startIcon={iconOrder === 'start' ? icon : undefined}
@@ -20,7 +21,8 @@ const Button: React.FC<ButtonProps> = ({ text, icon,iconOrder, loading, disabled
             disabled={disabled || loading}
             loadingPosition={rest.loadingPosition ? rest.loadingPosition : 'end'}
             type={rest.type ? rest.type : 'button'}
-            style={{outline:'none',boxShadow:'none',background:'#0147FF',textTransform:'capitalize',padding:'10px 0',fontSize:`${fontSizes.fs18}`}}
+            style={{outline:'none',boxShadow:'none',background:rest.bgColor,textTransform:'capitalize',padding:'10px',fontSize:`${fontSizes.fs18}`,color:rest.textColor}}
+            onClick={onClick}
             {...rest}
         >
             {text}
